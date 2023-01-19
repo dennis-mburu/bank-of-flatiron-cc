@@ -7,6 +7,12 @@ function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  useEffect(() => {
+    fetch("http://localhost:8001/transactions")
+      .then((r) => r.json())
+      .then((data) => setTransactions(data));
+  }, []);
+
   function handleSearchChange(newTerm) {
     setSearchTerm(newTerm);
   }
@@ -19,17 +25,17 @@ function AccountContainer() {
     setTransactions([...transactions, newTransaction]);
   }
 
-  useEffect(() => {
-    fetch("http://localhost:8001/transactions")
-      .then((r) => r.json())
-      .then((data) => setTransactions(data));
-  }, []);
+  function handleTransactionDelete(id){
+    setTransactions(transactions.filter(transaction => transaction.id !== id))
+  }
+
+
 
   return (
     <div>
       <Search onSearchChange={handleSearchChange} />
       <AddTransactionForm onAddTransaction={handleAddTransaction} />
-      <TransactionsList transactions={transactionsToDisplay} />
+      <TransactionsList transactions={transactionsToDisplay} onDeleteTransaction={handleTransactionDelete}/>
     </div>
   );
 }

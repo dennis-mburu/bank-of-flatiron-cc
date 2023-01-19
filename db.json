@@ -90,13 +90,6 @@
       "category": "Luxuey",
       "amount": "1300",
       "id": 13
-    },
-    {
-      "date": "2023-01-20",
-      "description": "Pay Tax",
-      "category": "Tax",
-      "amount": "100",
-      "id": 14
     }
   ]
 }
