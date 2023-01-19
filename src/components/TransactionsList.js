@@ -1,22 +1,29 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({transactions, onDeleteTransaction}) {
+function TransactionsList({transactions, onDeleteTransaction ,onSortClick}) {
+
+
+  function handleSortClick(e){
+    onSortClick(transactions, e.target.id)
+  }
+
   return (
     <table className="ui celled striped padded table">
       <tbody>
         <tr>
           <th>
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 className="ui center aligned header" style={{cursor: "pointer"}} id="date" onClick={handleSortClick}>Date</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Description</h3>
+            <h3 className="ui center aligned header" style={{cursor: "pointer"}} id="description" onClick={handleSortClick}>Description</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Category</h3>
+            <h3 className="ui center aligned header" style={{cursor: "pointer"}} id="category" onClick={handleSortClick}>Category</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Amount</h3>
+            {/* <h3 className="ui center aligned header" style={{cursor: "pointer"}} id="amount" onClick={handleSortClick}>Amount</h3> */}
+            <h3 className="ui center aligned header" >Amount</h3>
           </th>
           <th>
             <h3 className="ui center aligned header">Delete</h3>

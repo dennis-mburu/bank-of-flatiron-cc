@@ -83,13 +83,6 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
-    },
-    {
-      "date": "2023-01-19",
-      "description": "Buy Solid",
-      "category": "Luxuey",
-      "amount": "1300",
-      "id": 13
     }
   ]
 }
